@@ -10,6 +10,7 @@ HealthHormones is an application designed to support users in maintaining a heal
 - Health Tests: Users can track the results of their health tests, schedule appointments for tests, and consult with medical specialists.
 - Health Symptoms: Enables recording of health symptoms, browsing symptom history, and monitoring changes.
 - Mood/Mental Health: Allows recording of moods and mental health status, trend analysis, and access to mental health advice.
+- Hormone Management: Provides functionalities to track and manage hormone levels, receive hormone-related recommendations, and access information about hormonal health.
 ### Technologies
 HealthHormones application is built using the following technologies:
 
