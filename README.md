@@ -13,6 +13,6 @@ HealthHormones is an application designed to support users in maintaining a heal
 ### Technologies
 HealthHormones application is built using the following technologies:
 
-Backend: ASP.NET Core with C#
-Frontend: React (probably)
-Database: MongoDB
+- Backend: ASP.NET Core with C#
+- Frontend: React (probably)
+- Database: MongoDB
