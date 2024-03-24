@@ -18,7 +18,7 @@ public class SymptomsController : ControllerBase
     {
         return await symptomService.GetAllSymptomsAsync();
     }
-    [HttpGet("{symptomId:length(24)}")]
+    [HttpGet("{symptomId}")]
     public async Task<ActionResult<Symptom>> Get(string symptomId)
     {
         var symptom = await symptomService.GetSymptomByIdAsync(symptomId);
@@ -34,7 +34,7 @@ public class SymptomsController : ControllerBase
         await symptomService.AddSymptomAsync(symptom);
         return CreatedAtAction(nameof(Get), new { id = symptom.SymptomId }, symptom);
     }
-    [HttpPut("{symptomId:length(24)}")]
+    [HttpPut("{symptomId}")]
     public async Task<IActionResult> Update(string symptomId, Symptom symptoms)
     {
         var symptom = await symptomService.GetSymptomByIdAsync(symptomId);
@@ -46,7 +46,7 @@ public class SymptomsController : ControllerBase
         await symptomService.UpdateSymptomAsync(symptomId, symptoms);
         return Ok();
     }
-    [HttpDelete("{symptomId:length(24)}")]
+    [HttpDelete("{symptomId}")]
     public async Task<IActionResult> Delete(string symptomId)
     {
         var symptom = await symptomService.GetSymptomByIdAsync(symptomId);
