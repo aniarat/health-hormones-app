@@ -6,7 +6,7 @@ namespace HealthHormonesAPI.Models
     [Serializable, BsonIgnoreExtraElements]
     public class Symptom
     {
-        [BsonId, BsonElement("Id"), BsonRepresentation(BsonType.ObjectId)]
+        [BsonId]
         public string SymptomId { get; set; } = null!;
         
         [BsonElement("CreatedAt"), BsonRepresentation(BsonType.DateTime)]

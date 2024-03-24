@@ -10,14 +10,14 @@ public class SymptomService : ISymptomService
     private readonly IMongoCollection<Symptom> _symptomsCollection;
     
     public SymptomService(
-        IOptions<MongoDbSettings> symptomDatabaseSetting)
+        IOptions<MongoDbSettings> mongoDbSettings)
     {
-        var mongoClient = new MongoClient(
-            symptomDatabaseSetting.Value.ConnectionString);
-        var mongoDatabase = mongoClient.GetDatabase(
-            symptomDatabaseSetting.Value.DatabaseName);
-        _symptomsCollection = mongoDatabase.GetCollection<Symptom>(
-            symptomDatabaseSetting.Value.SymptomCollectionName);
+        MongoClient client = new MongoClient(
+            mongoDbSettings.Value.ConnectionString);
+        IMongoDatabase database = client.GetDatabase(
+            mongoDbSettings.Value.DatabaseName);
+        _symptomsCollection = database.GetCollection<Symptom>(
+            mongoDbSettings.Value.SymptomCollectionName);
     } 
 
     public async Task<Symptom> GetSymptomByIdAsync(string symptomId)
