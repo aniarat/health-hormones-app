@@ -7,12 +7,13 @@ namespace HealthHormonesAPI.Models
     public class Symptom
     {
         [BsonId, BsonElement("Id"), BsonRepresentation(BsonType.ObjectId)]
-        public string SymptomId { get; set; }
+        public string SymptomId { get; set; } = null!;
         
         [BsonElement("CreatedAt"), BsonRepresentation(BsonType.DateTime)]
         public DateTime CreatedAt { get; set; } // Date and time when the symptom was added
-        public string Location { get; set; } // Location of the symptom (e.g., head, abdomen, back)
-        public string Severity { get; set; } // Severity of the symptom (e.g., mild, moderate, severe)
+
+        public string Location { get; set; } = null!; // Location of the symptom (e.g., head, abdomen, back)
+        public string Severity { get; set; } = null!;// Severity of the symptom (e.g., mild, moderate, severe)
         
         [BsonElement("SeverityScale"), BsonRepresentation(BsonType.Int32)]
         public int SeverityScale { get; set; } // Severity scale of the symptom, ranging from 1 to 10
