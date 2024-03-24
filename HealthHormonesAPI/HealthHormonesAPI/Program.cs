@@ -1,4 +1,6 @@
+using HealthHormonesAPI.Interfaces;
 using HealthHormonesAPI.Models;
+using HealthHormonesAPI.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -6,6 +8,8 @@ var builder = WebApplication.CreateBuilder(args);
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.Configure<MongoDbSettings>(
     builder.Configuration.GetSection("HealthHormonesDb"));
+builder.Services.AddSingleton<ISymptomService, SymptomService>();
+builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -19,5 +23,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseAuthorization();
+app.MapControllers();
+app.Run();
 
 

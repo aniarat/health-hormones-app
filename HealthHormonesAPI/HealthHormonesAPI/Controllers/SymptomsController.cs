@@ -1,0 +1,60 @@
+﻿using HealthHormonesAPI.Interfaces;
+using HealthHormonesAPI.Models;
+using Microsoft.AspNetCore.Mvc;
+
+namespace HealthHormonesAPI.Controllers;
+
+[Route("api/[controller]")]
+[ApiController]
+public class SymptomsController : ControllerBase
+{
+    private readonly ISymptomService symptomService;
+
+    public SymptomsController(ISymptomService symptomService) =>
+        this.symptomService = symptomService;
+    
+    [HttpGet]
+    public async Task<List<Symptom>> Get()
+    {
+        return await symptomService.GetAllSymptomsAsync();
+    }
+    [HttpGet("{symptomId:length(24)}")]
+    public async Task<ActionResult<Symptom>> Get(string symptomId)
+    {
+        var symptom = await symptomService.GetSymptomByIdAsync(symptomId);
+        if (symptom is null)
+        {
+            return NotFound();
+        }
+        return symptom;
+    }
+    [HttpPost]
+    public async Task<IActionResult> Post(Symptom symptom)
+    {
+        await symptomService.AddSymptomAsync(symptom);
+        return CreatedAtAction(nameof(Get), new { id = symptom.SymptomId }, symptom);
+    }
+    [HttpPut("{symptomId:length(24)}")]
+    public async Task<IActionResult> Update(string symptomId, Symptom symptoms)
+    {
+        var symptom = await symptomService.GetSymptomByIdAsync(symptomId);
+        if (symptom is null)
+        {
+            return NotFound();
+        }
+        symptoms.SymptomId = symptom.SymptomId;
+        await symptomService.UpdateSymptomAsync(symptomId, symptoms);
+        return Ok();
+    }
+    [HttpDelete("{symptomId:length(24)}")]
+    public async Task<IActionResult> Delete(string symptomId)
+    {
+        var symptom = await symptomService.GetSymptomByIdAsync(symptomId);
+        if (symptom is null)
+        {
+            return NotFound();
+        }
+        await symptomService.DeleteSymptomAsync(symptomId);
+        return Ok();
+    }
+}
