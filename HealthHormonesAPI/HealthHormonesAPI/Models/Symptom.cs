@@ -33,6 +33,10 @@ namespace HealthHormonesAPI.Models
         public string? Trigger { get; set; } // Triggers that initiate the symptom (e.g., stress, specific foods, weather changes)
         public string? Notes { get; set; } // Additional notes related to the symptom entry
 
-
+        public List<SymptomChange> ChangeSymptoms { get; set; } 
+        public Symptom()
+        {
+            ChangeSymptoms = new List<SymptomChange>();
+        }
     }
 }

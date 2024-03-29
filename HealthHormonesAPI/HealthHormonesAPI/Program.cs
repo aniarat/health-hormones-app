@@ -1,6 +1,8 @@
 using HealthHormonesAPI.Interfaces;
 using HealthHormonesAPI.Models;
+using HealthHormonesAPI.Repositories;
 using HealthHormonesAPI.Services;
+using MongoDB.Driver;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,7 +10,19 @@ var builder = WebApplication.CreateBuilder(args);
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.Configure<MongoDbSettings>(
     builder.Configuration.GetSection("HealthHormonesDb"));
-builder.Services.AddSingleton<ISymptomService, SymptomService>();
+
+// Register mongoDb configuration as a singleton object
+// builder.Services.AddSingleton<IMongoDatabase>(options =>
+// {
+//     var settings = builder.Configuration.GetSection("HealthHormonesDb").Get<MongoDbSettings>();
+//     var client = new MongoClient(settings.ConnectionString);
+//     return client.GetDatabase(settings.DatabaseName);
+// });
+builder.Services.AddSingleton<ISymptomChangeRepository, SymptomChangeRepository>();
+builder.Services.AddSingleton<ISymptomRepository, SymptomRepository>();
+builder.Services.AddScoped<ISymptomChangeService, SymptomChangeService>();
+
+
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

@@ -11,6 +11,8 @@
     <ItemGroup>
         <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.0"/>
         <PackageReference Include="MongoDB.Driver" Version="2.24.0" />
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+        <PackageReference Include="Newtonsoft.Json.Bson" Version="1.0.3-beta1" />
         <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0"/>
     </ItemGroup>
 
@@ -18,6 +20,19 @@
       <Content Include="..\.dockerignore">
         <Link>.dockerignore</Link>
       </Content>
+      <Content Remove="HealthHormonesAPI.Infrastructure\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Remove="HealthHormonesAPI.Infrastructure\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Remove="HealthHormonesAPI.Infrastructure\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="HealthHormonesAPI.Infrastructure\**" />
     </ItemGroup>
 
 </Project>

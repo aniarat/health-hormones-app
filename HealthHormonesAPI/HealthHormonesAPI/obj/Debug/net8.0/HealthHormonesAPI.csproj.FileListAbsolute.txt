@@ -45,3 +45,5 @@ C:\Users\lenovo\Desktop\git\health-hormones-app\HealthHormonesAPI\HealthHormones
 C:\Users\lenovo\Desktop\git\health-hormones-app\HealthHormonesAPI\HealthHormonesAPI\obj\Debug\net8.0\HealthHormonesAPI.pdb
 C:\Users\lenovo\Desktop\git\health-hormones-app\HealthHormonesAPI\HealthHormonesAPI\obj\Debug\net8.0\HealthHormonesAPI.genruntimeconfig.cache
 C:\Users\lenovo\Desktop\git\health-hormones-app\HealthHormonesAPI\HealthHormonesAPI\obj\Debug\net8.0\ref\HealthHormonesAPI.dll
+C:\Users\lenovo\Desktop\git\health-hormones-app\HealthHormonesAPI\HealthHormonesAPI\bin\Debug\net8.0\Newtonsoft.Json.dll
+C:\Users\lenovo\Desktop\git\health-hormones-app\HealthHormonesAPI\HealthHormonesAPI\bin\Debug\net8.0\Newtonsoft.Json.Bson.dll
