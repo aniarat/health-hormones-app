@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace HealthHormonesAPI.Controllers;
 
-[Route("api/[controller]")]
+[Route("api/symptoms")]
 [ApiController]
 public class SymptomsController : ControllerBase
 {
@@ -32,7 +32,7 @@ public class SymptomsController : ControllerBase
     public async Task<IActionResult> Post(Symptom symptom)
     {
         await symptomService.AddSymptomAsync(symptom);
-        return CreatedAtAction(nameof(Get), new { id = symptom.SymptomId }, symptom);
+        return CreatedAtAction(nameof(Get), new { id = symptom.Id }, symptom);
     }
     [HttpPut("{symptomId}")]
     public async Task<IActionResult> Update(string symptomId, Symptom symptoms)
@@ -42,7 +42,7 @@ public class SymptomsController : ControllerBase
         {
             return NotFound();
         }
-        symptoms.SymptomId = symptom.SymptomId;
+        symptoms.Id = symptom.Id;
         await symptomService.UpdateSymptomAsync(symptomId, symptoms);
         return Ok();
     }

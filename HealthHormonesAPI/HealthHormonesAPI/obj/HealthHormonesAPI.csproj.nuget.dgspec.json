@@ -14,7 +14,8 @@
         "outputPath": "C:\\Users\\lenovo\\Desktop\\git\\health-hormones-app\\HealthHormonesAPI\\HealthHormonesAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"

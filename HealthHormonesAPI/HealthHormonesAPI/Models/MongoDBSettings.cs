@@ -1,4 +1,4 @@
-﻿namespace HealthHormonesAPI.Models;
+namespace HealthHormonesAPI.Models;
 
 public class MongoDbSettings
 {
